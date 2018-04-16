@@ -11,7 +11,22 @@
           url: "https://gateway-dev.ambrosus.com/assets/0x2db032e832ecc7af032651b2a25848dc263fb21f22a8d2ab2038d22a311155c1",
           success: function (data) {
             console.log(data)
-            $('#main').html(JSON.stringify(data));
+            $('#main').html('GET /asset: ' + JSON.stringify(data));
+          },
+          failure: console.log
+        });
+        $.ajax({
+          method: "POST",
+          url: "https://gateway-dev.ambrosus.com/token",
+          headers: {
+            'Accept': 'application/json',
+            'Authorization': 'AMB 0x7667f9f4bac24921e5e51fff87992cb268e23355aafbfe44e3c7ef343f3e837f',
+            'Content-Type': 'application/json'
+          },
+          data: '{"validUntil": 1600000000}',
+          success: function (data) {
+            console.log(data)
+            $('#token').html('POST /token: ' + JSON.stringify(data));
           },
           failure: console.log
         })
@@ -19,8 +34,7 @@
     </script>
 </head>
 <body>
-<div id="main">
-
-</div>
+<div id="main"></div>
+<div id="token"></div>
 </body>
 </html>
