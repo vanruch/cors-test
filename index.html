@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $.ajax({
+          type: "GET",
+          url: "https://gateway-dev.ambrosus.com/assets/0x2db032e832ecc7af032651b2a25848dc263fb21f22a8d2ab2038d22a311155c1",
+          success: function (data) {
+            console.log(data)
+            $('#main').html(JSON.stringify(data));
+          },
+          failure: console.log
+        })
+      });
+    </script>
+</head>
+<body>
+<div id="main">
+
+</div>
+</body>
+</html>
